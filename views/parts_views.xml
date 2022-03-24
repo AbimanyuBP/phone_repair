@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- pr.parts tree view -->
+    <record id="pr_parts_view_tree" model="ir.ui.view">
+        <field name="name">Parts</field>
+        <field name="model">pr.parts</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="merek"/>
+                <field name="tipe"/>
+                <field name="stok"/>
+                <field name="harga"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- pr.parts action window -->
+    <record id="pr_parts_action" model="ir.actions.act_window">
+        <field name="name">Parts</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pr.parts</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="pr_parts_menu_act" name="Parts" parent="pr_menu_root" action="pr_parts_action" sequence="10"/>
+
+</odoo>
