@@ -26,6 +26,6 @@
     </record>
 
     <!-- This Menu Item must have a parent and an action -->
-    <menuitem id="pr_parts_menu_act" name="Parts" parent="pr_menu_root" action="pr_parts_action" sequence="10"/>
+    <menuitem id="pr_parts_menu_act" name="Parts" parent="pr_menu_root" action="pr_parts_action" sequence="30"/>
 
 </odoo>
