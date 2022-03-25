@@ -2,3 +2,4 @@
 
 from . import models
 from . import parts
+from . import res_partner
