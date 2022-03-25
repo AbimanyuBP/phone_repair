@@ -31,6 +31,7 @@
         'views/menu.xml',
         'views/parts_views.xml',
         'views/teknisi_views.xml',
+        'views/order_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

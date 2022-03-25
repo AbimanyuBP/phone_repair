@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- pr.order tree view -->
+    <record id="pr_order_view_tree" model="ir.ui.view">
+        <field name="name">pr.order.view.tree</field>
+        <field name="model">pr.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="id_order"/>
+                <field name="seri"/>
+                <field name="pelanggan"/>
+                <field name="progress" 
+                    decoration-primary="progress == 'baru'" 
+                    decoration-info="progress == 'inspeksi' or progress == 'quotation' or progress == 'repair'" 
+                    decoration-danger="progress == 'ditolak'" 
+                    decoration-success="progress == 'selesai'"
+                    widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- pr.order action window -->
+    <record id="pr_order_action" model="ir.actions.act_window">
+        <field name="name">Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pr.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="pr_order_menu_act" name="Order" parent="pr_menu_root" action="pr_order_action" sequence="10"/>
+
+</odoo>
