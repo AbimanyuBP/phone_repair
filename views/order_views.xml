@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
             <tree>
                 <!-- Add your fields here -->
-                <field name="id_order"/>
+                <field name="id"/>
                 <field name="seri"/>
                 <field name="pelanggan"/>
                 <field name="progress" 
