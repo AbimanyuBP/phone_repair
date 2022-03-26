@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- pr.repair tree view -->
+    <record id="pr_repair_view_tree" model="ir.ui.view">
+        <field name="name">pr.repair.view.tree</field>
+        <field name="model">pr.repair</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="quotation_id"/>
+                <field name="teknisi_id"/>
+                <field name="diagnosa"/>
+                <field name="status_rep"
+                    decoration-muted="status_rep == 'perbaikan'" 
+                    decoration-success="status_rep == 'selesai'"
+                    widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- pr.repair action window -->
+    <record id="pr_repair_action" model="ir.actions.act_window">
+        <field name="name">Repair</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pr.repair</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="pr_repair_menu_act" name="Repair" parent="pr_station_menu_categ" action="pr_repair_action" sequence="30"/>
+
+</odoo>

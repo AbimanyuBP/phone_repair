@@ -6,3 +6,4 @@ from . import res_partner
 from . import order
 from . import inspeksi
 from . import quotation
+from . import repair
