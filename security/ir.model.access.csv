@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_pr_parts,access.pr.parts,model_pr_parts,,1,1,1,1
 access_pr_order,access.pr.order,model_pr_order,,1,1,1,1
+access_pr_inspeksi,access.pr.inspeksi,model_pr_inspeksi,,1,1,1,1

@@ -4,3 +4,4 @@ from . import models
 from . import parts
 from . import res_partner
 from . import order
+from . import inspeksi

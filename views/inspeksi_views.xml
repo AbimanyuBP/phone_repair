@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- pr.inspeksi tree view -->
+    <record id="model_name_view_tree" model="ir.ui.view">
+        <field name="name">pr.inspeksi.view.tree</field>
+        <field name="model">pr.inspeksi</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="id_inspeksi"/>
+                <field name="order_id"/>
+                <field name="teknisi_id"/>
+                <field name="keluhan"/>
+                <field name="diagnosa"/>
+                <field name="status_ins" 
+                    decoration-info="status_ins == 'proses'" 
+                    decoration-success="status_ins == 'diagnosed'"
+                    widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- pr.inspeksi action window -->
+    <record id="pr_inspeksi_action" model="ir.actions.act_window">
+        <field name="name">Inspeksi</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pr.inspeksi</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="pr_inspeksi_menu_act" name="Inspeksi" parent="pr_station_menu_categ" action="pr_inspeksi_action" sequence="10"/>
+
+</odoo>

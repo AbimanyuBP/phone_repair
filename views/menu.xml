@@ -4,4 +4,7 @@
     <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
     <menuitem id="pr_menu_root" name="Phone Repair" sequence="20"/>
 
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="pr_station_menu_categ" name="Station" parent="pr_menu_root" sequence="20"/>
+
 </odoo>
