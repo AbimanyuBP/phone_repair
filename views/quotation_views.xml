@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- pr.quotation tree view -->
+    <record id="pr_quotation_view_tree" model="ir.ui.view">
+        <field name="name">pr.quotation.view.tree</field>
+        <field name="model">pr.quotation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="id_quo"/>
+                <field name="ins_detail_id"/>
+                <field name="status_quo"
+                    decoration-danger="status_quo == 'ditolak'" 
+                    decoration-success="status_quo == 'diterima'"
+                    widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- pr.quotation form view -->
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">Quotation form</field>
+        <field name="model">pr.quotation</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="id_quo"/>
+                        <field name="ins_detail_id"/>
+                        <field name="status_quo"/>
+                    </group>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="partsdetail_ids">
+                            <tree editable='bottom'>
+                                <field name="parts_id"/>
+                                <field name="harga_satuan"/>
+                                <field name="qty"/>
+                                <field name="total" sum='Total'/>            
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- pr.quotation action window -->
+    <record id="pr_quotation_action" model="ir.actions.act_window">
+        <field name="name">Quotation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pr.quotation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="pr_quotation_menu_act" name="Quotation" parent="pr_station_menu_categ" action="pr_quotation_action" sequence="20"/>
+
+</odoo>

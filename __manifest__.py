@@ -33,6 +33,7 @@
         'views/teknisi_views.xml',
         'views/order_views.xml',
         'views/inspeksi_views.xml',
+        'views/quotation_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
