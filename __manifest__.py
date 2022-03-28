@@ -35,6 +35,7 @@
         'views/inspeksi_views.xml',
         'views/quotation_views.xml',
         'views/repair_views.xml',
+        'views/akunting_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

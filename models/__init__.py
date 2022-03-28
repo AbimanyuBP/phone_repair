@@ -7,3 +7,4 @@ from . import order
 from . import inspeksi
 from . import quotation
 from . import repair
+from . import akunting

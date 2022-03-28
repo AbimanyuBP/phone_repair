@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- pr.akunting tree view -->
+    <record id="pr_akunting_view_tree" model="ir.ui.view">
+        <field name="name">pr.akunting.view.tree</field>
+        <field name="model">pr.akunting</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="tanggal"/>
+                <field name="debet"/>
+                <field name="kredit"/>
+                <field name="saldo"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- pr.akunting action window -->
+    <record id="pr_akunting_action" model="ir.actions.act_window">
+        <field name="name">Akunting</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pr.akunting</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="pr_akunting_menu_act" name="Akunting" parent="pr_menu_root" action="pr_akunting_action" sequence="50"/>
+
+</odoo>

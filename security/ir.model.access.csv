@@ -5,3 +5,4 @@ access_pr_inspeksi,access.pr.inspeksi,model_pr_inspeksi,,1,1,1,1
 access_pr_quotation,access.pr.quotation,model_pr_quotation,,1,1,1,1
 access_pr_partsdetail,access.pr.partsdetail,model_pr_partsdetail,,1,1,1,1
 access_pr_repair,access.pr.repair,model_pr_repair,,1,1,1,1
+access_pr_akunting,access.pr.akunting,model_pr_akunting,,1,1,1,1
