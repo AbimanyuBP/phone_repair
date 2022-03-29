@@ -10,12 +10,20 @@ class Quotation(models.Model):
     ins_detail_id = fields.Many2one(comodel_name='pr.inspeksi', string='No Inspeksi', domain=[('status_ins', '=', 'diagnosed')])
     status_quo = fields.Selection(string='Status', selection=[('diterima', 'Diterima'), ('ditolak', 'Ditolak'), ('waiting', 'Waiting')], default='waiting')
     har_inspeksi = fields.Integer(string='Harga Inspeksi', readonly=True, default=45000)
-    tot_harga = fields.Integer(compute='_compute_tot_harga', string='tot_harga')
+    har_parts = fields.Char(compute='_compute_har_parts', string='Total harga parts ', store=True)
+    tot_harga = fields.Integer(compute='_compute_tot_harga', string='Total akhir', store=True)
     
-    @api.depends('har_inspeksi', 'partsdetail_ids')
+    @api.depends('partsdetail_ids')
+    def _compute_har_parts(self):
+        for record in self:
+            k = sum(self.env['pr.partsdetail'].search([('parts_id', '=', record.id)]).mapped('total'))
+            record.har_parts = k
+    
+    @api.depends('partsdetail_ids', 'har_inspeksi')
     def _compute_tot_harga(self):
         for record in self:
-            a = sum(self.env['pr.partsdetail'].search([('parts_id', '=', record.id)]).mapped('harga')) + record.har_inspeksi
+            a = sum(self.env['pr.partsdetail'].search([('parts_id', '=', record.id)]).mapped('total'))
+            record.tot_harga = a + record.har_inspeksi
     
     
     @api.model

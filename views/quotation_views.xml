@@ -10,6 +10,7 @@
                 <!-- Add your fields here -->
                 <field name="id_quo"/>
                 <field name="ins_detail_id"/>
+                <field name="tot_harga"/>
                 <field name="status_quo"
                     decoration-danger="status_quo == 'ditolak'" 
                     decoration-success="status_quo == 'diterima'"
@@ -30,6 +31,9 @@
                         <field name="id_quo"/>
                         <field name="ins_detail_id"/>
                         <field name="status_quo"/>
+                        <field name="har_inspeksi"/>
+                        <field name="har_parts"/>
+                        <field name="tot_harga"/>
                     </group>
                     <group>
                         <!-- Add your fields here -->
