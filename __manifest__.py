@@ -36,6 +36,8 @@
         'views/quotation_views.xml',
         'views/repair_views.xml',
         'views/akunting_views.xml',
+        'report/report.xml',
+        'report/quotation_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

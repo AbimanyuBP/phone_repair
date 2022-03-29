@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="report_pr_quotation">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h1>Quotation</h1>
+                    <h2>
+                        <div class="row">
+                            <div class="col-4">Kode Quotation: </div>
+                            <div class="col-8"><span t-field="o.id_quo"/></div>
+                        </div>
+                    </h2>
+                    <h2>
+                        <div class="row">
+                            <div class="col-4">Harga Inspeksi: </div>
+                            <div class="col-8"><span t-field="o.har_inspeksi"/></div>
+                        </div>
+                    </h2>
+                    <h2>
+                        <div class="row">
+                            <div class="col-4">Harga Parts: </div>
+                            <div class="col-8"><span t-field="o.har_parts"/></div>
+                        </div>
+                    </h2>
+                    <h1>
+                        <div class="row">
+                            <div class="col-4">Total Harga: </div>
+                            <div class="col-8"><span t-field="o.tot_harga"/></div>
+                        </div>
+                    </h1>
+                    <h2>
+                        <div class="row">
+                            <div class="col-4">Detail Parts: </div>
+                        </div>
+                    </h2>
+                    <h3>
+                        <div class="row">
+                            <table class="table table-striped">
+                                    <tr>
+                                        <th>Nama Parts</th>
+                                        <th>Harga Satuan</th>
+                                        <th>Kuantitas</th>
+                                    </tr>
+                                <t t-foreach="o.partsdetail_ids" t-as="k">
+                                    <tr>
+                                        <td><span t-esc="k.parts_id.name"/></td>
+                                        <td><span t-esc="k.harga_satuan"/></td>
+                                        <td><span t-esc="k.qty"/></td>
+                                    </tr>
+                                </t>
+                            </table>
+                        </div>
+                    </h3>
+                </div>
+            </t>
+        </t>
+    </t>
+</template>
+
+</odoo>

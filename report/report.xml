@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="report_pr_quotation" model="ir.actions.report">
+        <field name="name">Report Quotation</field>
+        <field name="model">pr.quotation</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">phone_repair.report_pr_quotation</field>
+        <field name="report_file">phone_repair.report_pr_quotation</field>
+        <field name="binding_model_id" ref="model_pr_quotation"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>
