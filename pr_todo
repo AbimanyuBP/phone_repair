@@ -1,5 +1,5 @@
 Things todo:
-    ☐ add akunting model 
-    ☐ create connection between quotation and akunting model when status_quo == 'diterima' add new akunting entry
-    ☐ reminder add to akunting whenever new order arrive because inspection fee
+    ✔ add akunting model @done(22-03-29 12:27)
+    ✔ create connection between quotation and akunting model when status_quo == 'diterima' add new akunting entry @done(22-03-29 12:27)
+    ✔ reminder add to akunting whenever new order arrive because inspection fee @done(22-03-29 12:27)
     ☐ fix object name bug on calling related model (m2o and o2m)
