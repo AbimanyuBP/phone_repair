@@ -9,12 +9,21 @@ class Quotation(models.Model):
     partsdetail_ids = fields.One2many(comodel_name='pr.partsdetail', inverse_name='quotation_id', string='Parts Detail')
     ins_detail_id = fields.Many2one(comodel_name='pr.inspeksi', string='No Inspeksi', domain=[('status_ins', '=', 'diagnosed')])
     status_quo = fields.Selection(string='Status', selection=[('diterima', 'Diterima'), ('ditolak', 'Ditolak'), ('waiting', 'Waiting')], default='waiting')
+    har_inspeksi = fields.Integer(string='Harga Inspeksi', readonly=True, default=45000)
+    tot_harga = fields.Integer(compute='_compute_tot_harga', string='tot_harga')
+    
+    @api.depends('har_inspeksi', 'partsdetail_ids')
+    def _compute_tot_harga(self):
+        for record in self:
+            a = sum(self.env['pr.partsdetail'].search([('parts_id', '=', record.id)]).mapped('harga')) + record.har_inspeksi
+    
     
     @api.model
     def create(self, vals):
         record = super(Quotation, self).create(vals)
         if record.status_quo:
             self.env['pr.order'].search([('id','=',record.ins_detail_id.order_id.id)]).write({'progress':'quotation'})
+            self.env['pr.akunting'].create({'kredit': record.har_inspeksi, 'name': record.id_quo})
             return record
 
     @api.onchange('status_quo')

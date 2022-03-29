@@ -6,12 +6,13 @@ class Akunting(models.Model):
     _description = 'New Description'
     _order = 'id asc'
 
-    name = fields.Char(string='Name')
+    name = fields.Char(string='ID quotation')
     id_ak = fields.Char(string='Kode akunting')
-    tanggal = fields.Date('tanggal')
+    order_id = fields.Many2one(comodel_name='pr.order', string='Order No')
+    date = fields.Datetime(string='Date', default=fields.Datetime.now())
     debet = fields.Integer(string='debet')
     kredit = fields.Integer(string='kredit')
-    saldo = fields.Integer(compute='_compute_saldo', string='saldo')
+    saldo = fields.Float(compute='_compute_saldo', string='saldo')
     
     @api.depends('debet', 'kredit')
     def _compute_saldo(self):
